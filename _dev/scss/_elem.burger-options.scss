@@ -1,0 +1,18 @@
+.burger {
+  &-options {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    &:before {
+      @include iconize;
+      content: $icon-ellipsis-v;
+      position: absolute;
+      @include center;
+    }
+    &--on {
+      &+.menu-options {
+        display: block;
+      }
+    }
+  }
+}

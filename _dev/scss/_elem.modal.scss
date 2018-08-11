@@ -1,0 +1,51 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($c-dark, 0.5);
+  display: none;
+  z-index: 666;
+  &>* {
+    position: absolute;
+    @include center;
+  }
+  &--on {
+    display: block;
+  }
+  &__box {
+    background-color: $c-light-gray;
+    &__header {
+      font-size: 1.1rem;
+      color: $c-info;
+      padding: 18px 13px;
+      border-bottom: 1px solid $c-info;
+    }
+    &--color {
+    .modal__box__type {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      &>div {
+        border: 1px solid transparent;
+        width: 33%;
+        height: 30px;
+        font-size: 0;
+        cursor: pointer;
+        &:hover {
+          border-color: $c-dark;
+        }
+      }
+    }
+  }
+    &__bttnGroup {
+      border-top: 1px solid $c-light-gray2;
+      display: flex;
+      align-items: center;
+      >* {
+        flex: 1 0 auto;
+      }
+    }
+  }
+}

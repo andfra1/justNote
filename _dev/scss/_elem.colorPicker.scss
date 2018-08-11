@@ -1,0 +1,9 @@
+.colorPicker {
+  @include absolute;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  &__color {
+    width: 33%;
+  }
+}
