@@ -6,7 +6,7 @@
       <div class="note__banner__field">
         <input type="text" class="note__banner__fieldInput" value="{title}" maxlength="35" />
       </div>
-      <div class="note__banner__date" data-noteDate="{date}"></div>
+      <div class="note__banner__date" data-noteDate="{date}">{date}</div>
       <div class="note__banner__arrow icon-caret-down"></div>
       <input type="checkbox" name="{id}" id="{id}" />
       <label for="{id}" class="note__banner__check"></label>
