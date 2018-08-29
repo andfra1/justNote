@@ -1,5 +1,5 @@
 <?php
-$menuNote = ['Check', 'Send', 'Lock', 'Reminder', 'Archive', 'Delete']
+$menuNote = ['Archive', 'Send', 'Reminder', 'Delete']
 ?>
 
   <nav class="menu menu-note">

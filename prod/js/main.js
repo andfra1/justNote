@@ -29,31 +29,7 @@
 //   }
 //   e.stopPropagation();
 // });
-/*jshint esversion: 6 */
 
-// $('#jsColor').on('click', () => {
-//   $('#modal').addClass('modal--on');
-// });
-
-// var c = document.getElementById('color');
-// var tag = c.getElementsByTagName('div');
-// var note = document.getElementsByClassName('notes__item');
-
-// for (var i = 0; i < tag.length; i++) {
-//   tag[i].addEventListener('click', setColor, false);
-// }
-
-// function setColor() {
-//   for (var n = 0; n < note.length; n++) {
-//     if (note[n].firstChild.checked) {
-//       $(note[n], '[class*= notes__item--]')
-//         .removeClass(function (index, css) {
-//           return (css.match(/\bnotes__item--\S+/g) || []).join(' ');
-//         })
-//         .addClass('notes__item--' + $(this).attr('data-pickColor'));
-//     }
-//   }
-// }
 /*jshint esversion: 6 */
 
 // var del = document.getElementById('jsDelete');
@@ -70,6 +46,8 @@
 //   }
 // }
 $(document).ready(function () {
+  var d = new Date();
+
   $.getJSON("./json/notes.json", function (data) {
     var tplNote = $('#tpl-note');
     $.each(data, function (key, val) {
@@ -81,16 +59,43 @@ $(document).ready(function () {
         .replace(/{priority}/g, val.priority)
         .replace(/{color}/g, val.color);
 
-        $('.notes').append(tplNoteRepl);
-
+      $('.notes').append(tplNoteRepl);
     });
     //dodaje event do arrow i musi byc po wczytaniu jsona
-    $('.note__banner__arrow').on('click', function(){
+    $('.note__banner__arrow').on('click', function () {
       $(this).parent().siblings('.note__content').toggleClass('note__content--show');
       $(this).toggleClass('note__banner__arrow--spin');
     });
+    $('.options__color__pick').on('click', function () {
+      var color = $(this).attr('data-notecolor');
+      $(this).closest('.notes__item').attr('class', 'notes__item note').addClass('notes__item--' + color);
+    });
+    $('.reminderHour').val(d.getHours());
+    $('.reminderMin').val(d.getMinutes());
   });
 })
+$(document).ready(function () {
+  var input = $('.form__row__fieldInput');
+  var label = label;
+
+  input.each(function () {
+    if ($(this).val() === '' || $(this).val().length <= 0) {
+      $(this).siblings(label).removeClass('form__row__fieldLabel--changed');
+    } else {
+      $(this).siblings(label).addClass('form__row__fieldLabel--changed');
+    }
+  });
+
+  input
+    .on('focus change', function () {
+      $(this).siblings(label).addClass('form__row__fieldLabel--changed');
+    })
+    .on('blur', function () {
+      if ($(this).val() === '' || $(this).val().length <= 0) {
+        $(this).siblings(label).removeClass('form__row__fieldLabel--changed');
+      }
+    });
+});
 /*jshint esversion: 6 */
 
 $(document).ready(() => {

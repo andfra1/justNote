@@ -39,51 +39,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="modal" id="modal">
-
-			<div class="modal__box modal__box--color">
-				<div class="modal__box__header">
-					Select color
-				</div>
-				<div class="modal__box__type" id="color">
-					<div style="background-color:red" data-pickColor="red"></div>
-					<div style="background-color:blue" data-pickColor="blue"></div>
-					<div style="background-color:green" data-pickColor="green"></div>
-					<div style="background-color:cyan" data-pickColor="cyan"></div>
-					<div style="background-color:magenta" data-pickColor="magenta"></div>
-					<div style="background-color:yellow" data-pickColor="yellow"></div>
-				</div>
-				<div class="modal__box__bttnGroup">
-					<button class="btn btn--modal" type="button" value="Cancel">Cancel</button>
-				</div>
-			</div>
-
-			<!-- <div class="modal__box">
-			<div class="modal__box__header">
-				Add Note
-			</div>
-			<div class="modal__box__type">
-
-			</div>
-			<div class="modal__box__bttnGroup">
-				<button class="btn btn--modal" type="button" value="Cancel">Cancel</button>
-				<button class="btn btn--modal" type="button" value="Next">Next</button>
-				<button class="btn btn--modal" type="button" value="OK">OK</button>
-			</div>
-		</div>
-
-		<div class="modal__addItem">
-			<div class="modal__addItem__header">
-				Add Item
-			</div>
-			<div class="modal__addItem__input">
-				<input type="text">
-			</div>
-			<div class="modal__addItem__bttnGroup">
-				<button class="btn btn--modal" type="button" value="Cancel">Cancel</button>
-				<button class="btn btn--modal" type="button" value="Next">Next</button>
-				<button class="btn btn--modal" type="button" value="OK">OK</button>
-			</div>
-		</div> -->
-		</div>
+	<?php
+if(isset($_GET['view'])) {
+	echo '<div class="container">';
+	}
+	?>

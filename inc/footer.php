@@ -30,9 +30,20 @@
         </div>
         <div class="options__color">
           <p>Color:</p>
-          <div class="options__color__pick">1</div>
-          <div class="options__color__pick">2</div>
-          <div class="options__color__pick">3</div>
+          <div class="options__color__pick options__color__pick--red" data-noteColor='red'></div>
+          <div class="options__color__pick options__color__pick--green" data-noteColor='green'></div>
+          <div class="options__color__pick options__color__pick--blue" data-noteColor='blue'></div>
+          <div class="options__color__pick options__color__pick--cyan" data-noteColor='cyan'></div>
+          <div class="options__color__pick options__color__pick--magenta" data-noteColor='magenta'></div>
+          <div class="options__color__pick options__color__pick--yellow" data-noteColor='yellow'></div>
+        </div>
+        <div class="options__reminder">
+          <p>Reminder</p>
+          <div class="options__reminderFields">
+            <input type="number" max="23" min="0" name="" class="reminderHour" id="reminderHour-{id}" value="12">
+            <input type="number" max="59" min="0" name="" class="reminderMin" id="reminderMin-{id}" value="12">
+          </div>
+          <button>OK</button>
         </div>
       </div>
     </div>

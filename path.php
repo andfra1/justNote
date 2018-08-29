@@ -5,7 +5,7 @@ define("HTTP", ($_SERVER["SERVER_NAME"] == "localhost")
    : $_SERVER["SERVER_NAME"] . "/"
 );
 
-//change dev to 0 if you're finished project!
+//change dev to 0 if you're finish project!
 $dev = 1;
 $prod = '.min';
 

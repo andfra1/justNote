@@ -3,8 +3,8 @@ body {
 }
 
 ::selection {
-  color: $c-light;
-  background: $c-basic;
+  color: $c-dark;
+  background: $c-light-gray;
 }
 
 h1,
@@ -63,4 +63,11 @@ p {
 .wrapper {
   max-width: $wrapper-width;
   margin: $wrapper-margin;
+}
+
+.wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }
