@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php include_once('./path.php'); ?>
 <?php include_once('content.php'); ?>
 
