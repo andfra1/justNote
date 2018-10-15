@@ -12,7 +12,7 @@ if (isset($_POST['submit']))
 
   //check empty fields
   if (empty($login) || empty($password)) {
-    header("Location: ./index.php?login=empty");
+    header("Location: ./../index.php?login=empty");
     exit();
   }
   else {
@@ -21,7 +21,7 @@ if (isset($_POST['submit']))
     $result = mysqli_query($conn, $sql); //checks sql query
 		$resultCheck = mysqli_num_rows($result); //check how many results we have
 		if($resultCheck < 1) { //if nothing
-      header("Location: ./index.php?login=error");
+      header("Location: ./../index.php?login=error");
       exit();
     }
     else {
@@ -30,16 +30,16 @@ if (isset($_POST['submit']))
         //hashed password checking
 				$hashedPass = password_verify($password, $row['password']);
         if($hashedPass == false) {
-          header("Location: ./index.php?login=error");
+          header("Location: ./../index.php?login=error");
           exit();
         }
         //elseif cause in veird situation when !false, need to check it is true (for sure)
         elseif($hashedPass == true) {
           //login user here
           $_SESSION['signinname'] = $row['login'];
-          //$_SESSION['email'] = $row['email'];
+          $_SESSION['email'] = $row['email'];
 
-          header("Location: ./index2.php");
+          header("Location: ./../index.php?login=ok");
           exit();
         }
       }
@@ -47,6 +47,6 @@ if (isset($_POST['submit']))
   }
 }
 else {
-  header("Location: ./index.php?ehh");
+  header("Location: ./../index.php?ehh");
 }
 ?>

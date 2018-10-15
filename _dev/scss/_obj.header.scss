@@ -1,7 +1,5 @@
 $headerHeight: 78px;
 .header {
-  @include fixed;
-  height: $headerHeight;
   z-index: 2;
   &>.wrapper {
     padding: $wrapper-padding;

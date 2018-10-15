@@ -12,18 +12,18 @@ if (isset($_POST['submit'])) //check if submitted
 
   //empty fields
   if (empty($mail) || empty($login) || empty($password)) {
-    header("Location: index.php?signup=empty");
+    header("Location: ./../index.php?signup=empty");
     exit();
   }
     else {
       if(!preg_match("/^[a-zA-Z0-9]*$/", $login)) {
-        header("Location: index.php?signup=invalid");
+        header("Location: ./../index.php?signup=invalid");
         exit();
       }
       else {
       //check email is valid
       if(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        header("Location: index.php?signup=email");
+        header("Location: ./../index.php?signup=email");
         exit();
       }
       else {
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) //check if submitted
         $resultCheck = mysqli_num_rows($result);
         
         if($resultCheck > 0) {
-          header("Location: index.php?signup=userexists");
+          header("Location: ./../index.php?signup=userexists");
           exit();
         }
         else {
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) //check if submitted
           //insert data to db
           $insert = "INSERT INTO users (`email`, `login`, `password`) VALUES ('$mail', '$login', '$hashPass');";
           $r = mysqli_query($conn, $insert);
-          header("Location: index.php?signup=success");
+          header("Location: ./../index.php?signup=success");
           exit();
         }
       }
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) //check if submitted
   }
 }
 else {
-  header("Location: index.php?wtf");
+  header("Location: ./../index.php?wtf");
   exit();
 }
 ?>

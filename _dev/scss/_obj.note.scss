@@ -97,6 +97,7 @@
       }
     }
     &__options {
+      display: none;
       flex: 1;
       margin-left: 10px;
       [class^="options__"] {

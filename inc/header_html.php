@@ -1,8 +1,8 @@
 <?php
-include_once ('inc/head.php');
+include_once ('head.php');
 
 if(!isset($_SESSION['signinname'])) {
-  header("Location: ./index.php");
+  header("Location: ./../index.php");
   exit();
 }
 ?>
@@ -27,7 +27,7 @@ if(!isset($_SESSION['signinname'])) {
             Synchro
           </a></li>
           <li>
-            <a href="./logout.php">
+            <a href="./inc/logout.php">
               Logout
             </a>
           </li>
@@ -40,4 +40,3 @@ if(!isset($_SESSION['signinname'])) {
 
     </div>
   </header>
-  <div class="header-spacer"></div>

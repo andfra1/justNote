@@ -1,5 +1,10 @@
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: $c-light-gray;
+  font-family: "Arial", "Verdana", "Tahoma";
 }
 
 ::selection {
@@ -67,7 +72,8 @@ p {
 
 .wrap {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  max-width: 350px;
   justify-content: center;
-  flex-wrap: wrap;
+  margin: 0 auto;
 }
