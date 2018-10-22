@@ -1,32 +1,46 @@
 .burger {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  &:before {
-    @include iconize;
-    content: $icon-bars;
-    position: absolute;
-    @include center;
-  }
-  &--on {
-    &+.menu-main {
-      left: 5px;
-      opacity: 1;
-    }
-  }
-  &-options {
+  display: block;
+  padding: 5px;
+  width: 36px;
+  height: 28px;
+  background-color: transparent;
+  z-index: 3;
+  &_stripe {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #53677a;
     position: relative;
-    width: 30px;
-      height: 30px;
-    &:before {
-      @include iconize;
-      content: $icon-ellipsis-v;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: all 0.3s;
+    &:before,
+    &:after {
+      content: '';
       position: absolute;
-      @include center;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #53677a;
+      transition: all 0.3s;
     }
-    &--on {
-      &+.menu-options {
-        display: block;
+    &:before {
+      top: 8px;
+    }
+    &::after {
+      top: -8px;
+    }
+  }
+  &-change {
+    .burger_stripe {
+      background-color: transparent;
+      &:before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &:after {
+        top: 0;
+        transform: rotate(-45deg);
       }
     }
   }

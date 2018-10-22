@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     uncss = require('gulp-uncss'), //removes unused css
     minifycss = require('gulp-minify-css'),
+    sourcemaps = require('gulp-sourcemaps'),
     wait = require('gulp-wait');
 
 var baseName = 'main';
@@ -21,7 +22,6 @@ var baseName = 'main';
 var path = {
     css: {
         dev: [
-            //'../_dev/scss/vendor/*.css',
             '../_dev/scss/*.scss'
         ],
         prod: '../prod/css/',
@@ -34,44 +34,49 @@ var path = {
         prod: '../prod/js/'
     },
     html: '../index.php',
-    sync: './'
+    sync: '../_justNote'
 };
 
 let onError = (err) => {
     console.log(err);
 }
 
-gulp.task('sync', function () {
+// gulp.task('sync', function () {
 
-    bs.init({
-        proxy: 'server_name form hosts',
-    });
-});
+//     bs.init({
+//         localOnly: true,
+//         proxy: 'justnote',
+//         host: 'justnote:3001'
+//     });
+// });
 
 gulp.task('css', () => {
     return gulp.src(path.css.dev)
+    //.pipe(sourcemaps.init({loadMaps: true}))
         .pipe(plumber({
             handleError: onError
         }))
         .pipe(wait(500))
-        .pipe(sass
-            .sync({
-                outputStyle: 'compressed'
-            })
-            .on('error', sass.logError))
-        .pipe(concat(baseName + '.css'))
-        // .pipe(uncss({
-        //     html: [path.html] //only for HTML!!
-        // }))
-        .pipe(gulp.dest(path.css.prod))
-        .pipe(postcss([
-            autoprefixer({
-                browsers: "> 1%"
-            })
-        ]))
-        .pipe(cmq())
-        .pipe(csscomb(path.css.prod + baseName + '.css'))
-        .pipe(gulp.dest(path.css.prod))
+
+            .pipe(sass
+                .sync({
+                    outputStyle: 'compressed'
+                })
+                .on('error', sass.logError))
+            .pipe(concat(baseName + '.css'))
+            // .pipe(uncss({
+            //     html: [index.php] //only for HTML!!
+            // }))
+            .pipe(gulp.dest(path.css.prod))
+            .pipe(postcss([
+                autoprefixer({
+                    browsers: "> 1%"
+                })
+            ]))
+            .pipe(cmq())
+            .pipe(csscomb(path.css.prod + baseName + '.css'))
+            .pipe(gulp.dest(path.css.prod))
+        //.pipe(sourcemaps.write(path.css.prod))
         .pipe(notify('CSS Done!'))
 });
 
@@ -82,6 +87,8 @@ gulp.task('js', () => {
         }))
         .pipe(concat(baseName + '.js'))
         .pipe(gulp.dest(path.js.prod))
+        // .pipe(sourcemaps.init({loadMaps: true}))
+        // .pipe(sourcemaps.write(path.js.prod))
         .pipe(notify('JS Done!'))
 });
 

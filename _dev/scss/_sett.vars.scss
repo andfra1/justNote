@@ -5,7 +5,7 @@ $c-dark2: #333;
 $c-warn: rgb(255, 35, 35);
 $c-neutral: rgb(0, 189, 0);
 $c-basic: #ff0;
-$c-basic2: #ffffcc;
+$c-basic2: #ffffb3;
 $c-light-gray: #f5f5f5;
 $c-lighter-gray: #fcfcfc;
 $c-light-gray2: #ccc;
@@ -17,7 +17,7 @@ $c-orange: #ffda34;
 //globals
 //globals - fonts
 $ff-basic: Arial, Helvetica, sans-serif;
-$fs-basic: 1rem;
+$fs-basic: 16px;
 $fw-basic: 400;
 $fc-basic: $c-dark2;
 
@@ -32,6 +32,10 @@ $fs-h3: $fs-basic*1.2;
 $section-margin: 50px 0;
 $section-padding: 0;
 
-$wrapper-width: 500px;
-$wrapper-margin: 0 auto;
-$wrapper-padding: 0 0px;
+$wrapper-width: 100%;
+$wrapper-margin: 0;
+$wrapper-padding: 0;
+
+$container-width: 100%;
+$container-margin: 0;
+$container-padding: 0 15px;

@@ -1,0 +1,9 @@
+.btn {
+  border: 1px solid $c-dark2;
+  padding: 7px 10px;
+  transition: background-color 0.3s, color 0.3s;
+  &:hover {
+    background-color: $c-dark2;
+    color: $c-basic2;
+  }
+}

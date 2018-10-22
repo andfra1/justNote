@@ -15,13 +15,13 @@ $(document).ready(function () {
       $('.notes').append(tplNoteRepl);
     });
     //dodaje event do arrow i musi byc po wczytaniu jsona
-    $('.note__banner__arrow').on('click', function () {
-      $(this).parent().siblings('.note__content').toggleClass('note__content--show');
-      $(this).toggleClass('note__banner__arrow--spin');
+    $('.note_banner_arrow').on('click', function () {
+      $(this).parent().siblings('.note_content').toggleClass('note_content-show');
+      $(this).toggleClass('note_banner_arrow-spin');
     });
-    $('.options__color__pick').on('click', function () {
+    $('.options_color_pick').on('click', function () {
       var color = $(this).attr('data-notecolor');
-      $(this).closest('.notes__item').attr('class', 'notes__item note').addClass('notes__item--' + color);
+      $(this).closest('.notes_item').attr('class', 'notes_item note').addClass('notes_item-' + color);
     });
     $('.reminderHour').val(d.getHours());
     $('.reminderMin').val(d.getMinutes());
