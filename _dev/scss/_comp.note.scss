@@ -1,259 +1,115 @@
 .note {
-  display: block;
-  z-index: 1;
+  border-radius: 5px;
+  padding: 0 10px;
+  overflow: hidden;
+  &_color {
+    &-red {
+      background-color: $c-red;
+    }
 
-  &_banner {
+    &-yellow {
+      background-color: $c-basic;
+    }
+
+    &-blue {
+      background-color: $c-blue;
+    }
+
+    &-magenta {
+      background-color: $c-magenta;
+    }
+
+    &-cyan {
+      background-color: $c-cyan;
+    }
+
+    &-green {
+      background-color: $c-green;
+    }
+  }
+
+  &_header.nh {
     display: flex;
-    z-index: 2;
     align-items: center;
+    height: 40px;
 
     &>* {
-      margin-left: 10px;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &_field {
-      padding: 5px 0;
-      flex: 1;
-
-      &Input {
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-        border: 1px dashed transparent;
-
-        &:focus {
-          border: 1px dashed rgba($c-dark2, 0.2);
-        }
-      }
-    }
-
-    &_date {
-      font-size: 12px;
-      max-width: 40px;
-      text-align: center;
-    }
-
-    &_check {
-      $checkSize: 16px;
-      width: $checkSize;
-      height: $checkSize;
-      border: 1px solid #000;
-      border-radius: 4px;
       position: relative;
-      background-color: $c-light-gray;
-
-      &:before {
-        @include iconize;
-        content: '';
-        position: absolute;
-        font-size: 10px;
-        @include center;
-      }
+      padding: 10px;
     }
 
-    &_arrow {
-      position: relative;
-      width: 26px;
-      height: 26px;
-      cursor: pointer;
-      transition: all 0.3s;
-
-      &:before {
+    .nh {
+      &_checkbox {
         position: absolute;
-        font-size: 1rem;
-        line-height: 1rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 0.3s;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        top: -9999px;
+        left: -9999px;
       }
 
-      &:hover {
+      &_drag {
+        opacity: 0.4;
+      }
+
+      &_title {
+        flex: 1 0 auto;
+        cursor: pointer;
+        &_text {}
+      }
+
+      &_date {
+        font-size: 11px;
+
+        &_added {}
+      }
+
+      &_label {
         &:before {
-          transform: translate(-50%, -50%) scale(1.2);
+          font-size: 16px;
         }
       }
 
-      &-spin {
-        transform: rotateX(180deg);
-      }
-    }
-  }
-
-  &_content {
-    z-index: 2;
-    display: flex;
-    align-items: flex-start;
-    max-height: 0px;
-    overflow: hidden;
-    border-top: 1px solid transparent;
-    transition: max-height 0.3s;
-
-    &-show {
-      max-height: 210px;
-      padding: 5px 0;
-      border-top: 1px solid #000;
-    }
-
-    &_text {
-      flex: 3;
-
-      textarea {
-        width: 100%;
-        height: 100%;
-        border: 1px dashed transparent;
-        padding: 5px;
-        resize: none;
-
-        &:focus {
-          border: 1px dashed rgba($c-dark2, 0.2);
-        }
-      }
-    }
-
-    &_options {
-      display: none;
-      flex: 1;
-      margin-left: 10px;
-
-      [class^="options_"] {
-        p {
-          font-size: 12px;
-        }
-      }
-
-      .options {
-        display: block;
-
-        &_priority {
-          &_label {
-            display: block;
-            font-size: 12px;
+      &_menu {
+          &:before {
+            font-size: 16px;
           }
-
-          &_select {
-            font-size: 12px;
-            width: 100%;
-            display: block;
-          }
-        }
-
-        &_color {
-          &_pick {
-            width: 22px;
-            height: 22px;
-            display: inline-block;
-            margin: 0 5px 5px 0;
-            border-radius: 4px;
-            position: relative;
-            transition: box-shadow 0.4s;
-
-            &:hover {
-              box-shadow: 0 0 10px 0px #000;
-            }
-
-            &:before,
-            &:after {
-              content: '';
-              display: block;
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              border-radius: 4px;
-            }
-
-            &:before {
-              top: 0;
-              right: 0;
-              background-color: rgba(255, 255, 255, .8);
-              width: 75%;
-              border-top-left-radius: 0;
-              border-bottom-left-radius: 0;
-            }
-
-            &:after {
-              top: -1px;
-              left: -1px;
-              border: 1px solid rgba(0, 0, 0, 0.2);
-              z-index: 1;
-            }
-
-            &-red {
-              background-color: red;
-            }
-
-            &-yellow {
-              background-color: yellow;
-            }
-
-            &-blue {
-              background-color: blue;
-            }
-
-            &-magenta {
-              background-color: magenta;
-            }
-
-            &-cyan {
-              background-color: cyan;
-            }
-
-            &-green {
-              background-color: green;
-            }
-          }
-        }
-
-        &_reminder {
-          &Fields {
-            display: flex;
-            align-items: center;
-          }
-
-          input {
-            font-size: 12px;
-            line-height: 12px;
-            display: inline-block;
-            width: 40px;
-          }
-
-          button {
-            border: 1px solid #000;
-            padding: 3px 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-          }
-        }
       }
     }
   }
-
-  [type="checkbox"] {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  [type="checkbox"]:checked~.note_banner_check {
+  .nh_checkbox:checked~.nh_label {
     &:before {
-      content: $icon-check;
+      content: $icon-check_box;
     }
   }
 
-  [type="checkbox"]:checked+.note_banner_field>.note_banner_fieldInput {
+  .nh_checkbox:checked+*+.nh_title>.nh_title_text {
     text-decoration: line-through;
+  }
+  &_content.nc {
+    height: 250px;
+    transition: height 0.3s;
+    &.note_content-hide {
+      height: 0;
+    }
+    .nc {
+      &_box {
+        border-top: 1px solid $c-dark;
+        background-color: rgba(255,255,255,0.5);
+        &_textarea {
+          width: 100%;
+          height: 200px;
+          padding: 10px;
+        }
+      }
+      &_date {
+        font-size: 11px;
+        padding: 10px;
+      }
+    }
   }
 }

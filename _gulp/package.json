@@ -27,9 +27,5 @@
     "gulp-minify-css": "*",
     "gulp-wait": "*",
     "gulp-postcss": "*"
-  },
-  "main": "Gulpfile.js",
-  "dependencies": {
-    "gulp-sourcemaps": "^2.6.4"
   }
 }

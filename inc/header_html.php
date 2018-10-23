@@ -7,31 +7,31 @@ if(!isset($_SESSION['signinname'])) {
 }
 
 $menu = ['notes' => [
-          'icon' => 'icon-notes',
+          'icon' => 'icon-pencil',
           'link' => './index.php?login=ok'
         ],
         'archive' => [
-          'icon' => 'icon-archive',
+          'icon' => 'icon-books',
           'link' => '#'
         ],
         'important' => [
-          'icon' => 'icon-archive',
+          'icon' => 'icon-star-full',
           'link' => '#'
         ],
         'categories' => [
-          'icon' => 'icon-archive',
+          'icon' => 'icon-hashtag',
           'link' => '#'
         ],
         'settings' => [
-          'icon' => 'icon-settings',
+          'icon' => 'icon-cog',
           'link' => '#'
         ],
         'synchro' => [
-          'icon' => 'icon-sync',
+          'icon' => 'icon-loop2',
           'link' => '#'
         ],
         'logout' => [
-          'icon' => 'icon-back',
+          'icon' => 'icon-exit',
           'link' => './inc/logout.php'
         ]
         ]
@@ -55,7 +55,10 @@ $menu = ['notes' => [
           </a></li>
         <?php endforeach; ?>
       </ul>
-
+      <div class="header_options ho">
+        <div class="ho_alpha_sort icon-sort-alpha-asc"></div>
+        <div class="ho_view js-ho_view icon-view_module"></div>
+      </div>
     </div>
   </div>
 </header>

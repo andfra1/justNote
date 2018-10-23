@@ -8,7 +8,7 @@
         <input type="text" class="note_banner_fieldInput" value="{title}" maxlength="35" />
       </div>
       <div class="note_banner_date" data-noteDate="{date}">{date}</div>
-      <div class="note_banner_arrow icon-caret-down"></div>
+      <div class="note_banner_arrow angle-down"></div>
       <label for="{id}" class="note_banner_check"></label>
     </div>
     <div class="note_content">

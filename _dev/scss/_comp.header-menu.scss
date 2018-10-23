@@ -2,7 +2,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: $c-basic2;
+  background-color: $c-basic;
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid #ccc;
@@ -34,8 +34,8 @@
         justify-content: center;
       }
       &:hover {
-        color: $c-basic2;
-        background-color: $c-dark2;
+        color: $c-basic;
+        background-color: $c-dark;
       }
     }
   }
