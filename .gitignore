@@ -1,6 +1,7 @@
 _gulp/node_modules
 _gulp/package-lock.json
-
+inc/connect.php
+ftpsync.settings
 .vscode
 
 __temp
