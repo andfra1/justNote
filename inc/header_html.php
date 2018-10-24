@@ -5,38 +5,60 @@ if(!isset($_SESSION['signinname'])) {
   header("Location: ./../index.php");
   exit();
 }
+
+$menu = ['notes' => [
+          'icon' => 'icon-pencil',
+          'link' => './index.php?login=ok'
+        ],
+        'archive' => [
+          'icon' => 'icon-books',
+          'link' => '#'
+        ],
+        'important' => [
+          'icon' => 'icon-star-full',
+          'link' => '#'
+        ],
+        'categories' => [
+          'icon' => 'icon-hashtag',
+          'link' => '#'
+        ],
+        'settings' => [
+          'icon' => 'icon-cog',
+          'link' => '#'
+        ],
+        'synchro' => [
+          'icon' => 'icon-loop2',
+          'link' => '#'
+        ],
+        'logout' => [
+          'icon' => 'icon-exit',
+          'link' => './inc/logout.php'
+        ]
+        ]
 ?>
-  <header class="header">
+
+<header class="header">
+  <div class="container">
     <div class="wrapper">
-    
-    <div>
+      <button class="burger" id="js-burger" value="off">
+        <span class="burger_stripe"></span>
+      </button>
       <div>
-        Logged as <?= $_SESSION['signinname'];?>
+        Logged as
+        <?= $_SESSION['signinname'];?>
       </div>
-        <ul>
-          <li><a href="#">
-            Notes
+      <ul class="header_menu header_menu-hidden" id="js-header_menu">
+        <?php foreach($menu as $key => $val) : ?>
+        <li><a href=<?= $val['link']; ?>>
+            <span class="<?= $val['icon']; ?>"></span>
+            <?= $key; ?>
           </a></li>
-          <li><a href="#">
-           Archive
-          </a></li>
-          <li><a href="#">
-            Settings
-          </a></li>
-          <li><a href="#">
-            Synchro
-          </a></li>
-          <li>
-            <a href="./inc/logout.php">
-              Logout
-            </a>
-          </li>
-        </ul>
+        <?php endforeach; ?>
+      </ul>
+      <div class="header_options ho">
+        <div class="ho_alpha_sort icon-sort-alpha-asc"></div>
+        <div class="ho_view js-ho_view icon-view_module"></div>
+      </div>
     </div>
-
-    <button type="button">
-      Add new note
-    </button>
-
-    </div>
-  </header>
+  </div>
+</header>

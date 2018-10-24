@@ -1,0 +1,115 @@
+.note {
+  border-radius: 5px;
+  padding: 0 10px;
+  overflow: hidden;
+  &_color {
+    &-red {
+      background-color: $c-red;
+    }
+
+    &-yellow {
+      background-color: $c-basic;
+    }
+
+    &-blue {
+      background-color: $c-blue;
+    }
+
+    &-magenta {
+      background-color: $c-magenta;
+    }
+
+    &-cyan {
+      background-color: $c-cyan;
+    }
+
+    &-green {
+      background-color: $c-green;
+    }
+  }
+
+  &_header.nh {
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+    &>* {
+      position: relative;
+      padding: 10px;
+    }
+
+    .nh {
+      &_checkbox {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      &_drag {
+        opacity: 0.4;
+      }
+
+      &_title {
+        flex: 1 0 auto;
+        cursor: pointer;
+        &_text {}
+      }
+
+      &_date {
+        font-size: 11px;
+
+        &_added {}
+      }
+
+      &_label {
+        &:before {
+          font-size: 16px;
+        }
+      }
+
+      &_menu {
+          &:before {
+            font-size: 16px;
+          }
+      }
+    }
+  }
+  .nh_checkbox:checked~.nh_label {
+    &:before {
+      content: $icon-check_box;
+    }
+  }
+
+  .nh_checkbox:checked+*+.nh_title>.nh_title_text {
+    text-decoration: line-through;
+  }
+  &_content.nc {
+    height: 250px;
+    transition: height 0.3s;
+    &.note_content-hide {
+      height: 0;
+    }
+    .nc {
+      &_box {
+        border-top: 1px solid $c-dark;
+        background-color: rgba(255,255,255,0.5);
+        &_textarea {
+          width: 100%;
+          height: 200px;
+          padding: 10px;
+        }
+      }
+      &_date {
+        font-size: 11px;
+        padding: 10px;
+      }
+    }
+  }
+}

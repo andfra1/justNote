@@ -1,0 +1,40 @@
+.notes {
+  position: relative;
+  list-style: none;
+  li {
+    margin: 10px 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    li {
+      margin: 10px;
+      width: calc(50% - 20px);
+      &:first-child {
+        margin: 10px;
+      }
+      &:last-child {
+        margin: 10px;
+      }
+      & .nh_date {
+        display: none;
+      }
+      & .note_content {
+        height: 145px;
+        & .nc_box_textarea {
+          height: 100px;
+        }
+      }
+      & .note_content-hide {
+        height: auto !important;
+      }
+    }
+  }
+}

@@ -1,6 +1,4 @@
 var gulp = require('gulp'),
-    bs = require('browser-sync').create(),
-    reload = bs.reload,
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'), //adds prefixes and sufixes for files
     sass = require('gulp-sass'),
@@ -11,7 +9,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
-    uncss = require('gulp-uncss'), //removes unused css
     minifycss = require('gulp-minify-css'),
     wait = require('gulp-wait');
 
@@ -21,7 +18,6 @@ var baseName = 'main';
 var path = {
     css: {
         dev: [
-            //'../_dev/scss/vendor/*.css',
             '../_dev/scss/*.scss'
         ],
         prod: '../prod/css/',
@@ -34,19 +30,12 @@ var path = {
         prod: '../prod/js/'
     },
     html: '../index.php',
-    sync: './'
+    sync: '../_justNote'
 };
 
 let onError = (err) => {
     console.log(err);
 }
-
-gulp.task('sync', function () {
-
-    bs.init({
-        proxy: 'server_name form hosts',
-    });
-});
 
 gulp.task('css', () => {
     return gulp.src(path.css.dev)
@@ -60,9 +49,6 @@ gulp.task('css', () => {
             })
             .on('error', sass.logError))
         .pipe(concat(baseName + '.css'))
-        // .pipe(uncss({
-        //     html: [path.html] //only for HTML!!
-        // }))
         .pipe(gulp.dest(path.css.prod))
         .pipe(postcss([
             autoprefixer({
@@ -72,7 +58,7 @@ gulp.task('css', () => {
         .pipe(cmq())
         .pipe(csscomb(path.css.prod + baseName + '.css'))
         .pipe(gulp.dest(path.css.prod))
-        .pipe(notify('CSS Done!'))
+        //.pipe(notify('CSS Done!'))
 });
 
 gulp.task('js', () => {
@@ -82,7 +68,7 @@ gulp.task('js', () => {
         }))
         .pipe(concat(baseName + '.js'))
         .pipe(gulp.dest(path.js.prod))
-        .pipe(notify('JS Done!'))
+        //.pipe(notify('JS Done!'))
 });
 
 gulp.task('html', () => {
@@ -122,10 +108,4 @@ gulp.task('watch', () => {
     gulp.watch(path.js.dev, ['js'])
     gulp.watch(path.css.dev, ['css'])
     gulp.watch(path.html, ['html'])
-});
-
-gulp.task('go', ['sync'], () => {
-    gulp.watch(path.js.dev, ['js']).on('change', bs.reload);
-    gulp.watch(path.css.dev, ['css']).on('change', bs.reload);
-    gulp.watch(path.html, ['html']).on('change', bs.reload);
 });

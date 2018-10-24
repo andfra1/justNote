@@ -42,8 +42,3 @@ session_start();
 </head>
 
 <body>
-	<?php
-if(isset($_GET['view'])) {
-	echo '<div class="container">';
-	}
-	?>
