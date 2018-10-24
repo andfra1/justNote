@@ -1,55 +1,50 @@
 <?php
-session_start();
+  include_once ('head.php');
+?>
 
-if (isset($_POST['submit'])) //check if submitted
-//&& strstr($_SERVER['HTTP_REFERER'],'.php',true) == 'http://localhost/QueSeraSera/index') //and sended from this URL
-{
-  include_once("connect.php");
+<form action="./inc/signup.php" method="post" class="form signup" id="signup">
+  <h2>Signup</h2>
+  <div class="form__row">
+    <div class="form__row__field">
+      <input required type="text" name="signupname" id="signupname" class="form__row__fieldInput" autocomplete="username" spellcheck="false" autocapitalize="off" autocorrect="off">
+      <label for="signupname" class="form__row__fieldLabel">
+        Login
+      </label>
+    </div>
+  </div>
 
-  $login = mysqli_real_escape_string($conn, $_POST['signupname']);
-  $password = mysqli_real_escape_string($conn, $_POST['signuppass']);
-  $mail = mysqli_real_escape_string($conn, $_POST['signupemail']);
+  <div class="form__row">
+    <div class="form__row__field">
+      <input required type="password" name="signuppass" id="signuppass" class="form__row__fieldInput" autocapitalize="off" autocorrect="off" autocomplete="new-password">
+      <label for="signuppass" class="form__row__fieldLabel">
+        Password
+      </label>
+    </div>
+  </div>
 
-  //empty fields
-  if (empty($mail) || empty($login) || empty($password)) {
-    header("Location: ./../index.php?signup=empty");
-    exit();
-  }
-    else {
-      if(!preg_match("/^[a-zA-Z0-9]*$/", $login)) {
-        header("Location: ./../index.php?signup=invalid");
-        exit();
-      }
-      else {
-      //check email is valid
-      if(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ./../index.php?signup=email");
-        exit();
-      }
-      else {
-        $sql = "SELECT * FROM users WHERE `login`='$login' OR `email`='$login' OR `email`='$mail'";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
-        
-        if($resultCheck > 0) {
-          header("Location: ./../index.php?signup=userexists");
-          exit();
-        }
-        else {
-          //hashing password
-          $hashPass = password_hash($password, PASSWORD_DEFAULT);
-          //insert data to db
-          $insert = "INSERT INTO users (`email`, `login`, `password`) VALUES ('$mail', '$login', '$hashPass');";
-          $r = mysqli_query($conn, $insert);
-          header("Location: ./../index.php?signup=success");
-          exit();
-        }
-      }
-    }
-  }
-}
-else {
-  header("Location: ./../index.php?wtf");
-  exit();
-}
+  <div class="form__row">
+    <div class="form__row__field">
+      <input required type="password" name="signuprepass" id="signuprepass" class="form__row__fieldInput"
+        autocapitalize="off" autocorrect="off" aria-autocomplete="list" autocomplete="new-password">
+      <label for="signuprepass" class="form__row__fieldLabel">
+        Re-enter password
+      </label>
+    </div>
+  </div>
+
+  <div class="form__row">
+    <div class="form__row__field">
+      <input required type="email" class="form__row__fieldInput" id="signupemail" autocomplete="email" spellcheck="false"
+        name="signupemail" autocapitalize="off" autocorrect="off">
+      <label for="signupemail" class="form__row__fieldLabel">
+        E-mail
+      </label>
+    </div>
+  </div>
+  <button type="submit" name="submit" class="btn">Signup</button>
+  <button type="reset" class="btn">Clear</button>
+</form>
+
+<?php
+  include_once ('footer.php');
 ?>

@@ -1,8 +1,8 @@
 <?php
 session_start();
 ?>
-<?php include_once('./path.php'); ?>
-<?php include_once('./inc/content.php'); ?>
+<?php include_once('../path.php'); ?>
+<?php include_once('../inc/content.php'); ?>
 
 <!DOCTYPE html>
 <html lang="pl">
