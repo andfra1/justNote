@@ -1,0 +1,30 @@
+.ho_sort {
+  position: relative;
+  &_options {
+    display: block;
+    background-color: $c-basic;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding: 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-family: $ff-basic;
+    font-size: 14px;
+    &-hide {
+      display: none;
+    }
+    &_item {
+      display: block;
+      cursor: pointer;
+      padding: 5px;
+      white-space: nowrap;
+      border-radius: 5px;
+      &:hover {
+        color: $c-basic;
+        background-color: $c-dark;
+      }
+    }
+  }
+}

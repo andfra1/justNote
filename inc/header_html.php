@@ -56,14 +56,14 @@ $menu = ['notes' => [
         <?php endforeach; ?>
       </ul>
       <div class="header_options ho">
-        <div class="ho_sort icon-sort-alpha-asc">
-        <ul class="ho_sort_options">
-          <li class="ho_sort_options_item" data-note-sort="alph-asc">A - Z</li>
-          <li class="ho_sort_options_item" data-note-sort="aplh-desc">Z - A</li>
-          <li class="ho_sort_options_item" data-note-sort="date-added-desc">Data dodania: najnowsza</li>
-          <li class="ho_sort_options_item" data-note-sort="date-added-desc">Data dodania: najstarsza</li>
-          <li class="ho_sort_options_item" data-note-sort="date-mod-desc">Data modyfikacji: najnowsza</li>
-          <li class="ho_sort_options_item" data-note-sort="date-mod-desc">Data modyfikacji: najstarsza</li>
+        <div class="ho_sort js-ho_sort icon-sort-alpha-asc">
+        <ul class="ho_sort_options ho_sort_options-hide">
+          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="alph-asc">A - Z</li>
+          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="aplh-desc">Z - A</li>
+          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-added-desc">Data dodania: najnowsza</li>
+          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-added-desc">Data dodania: najstarsza</li>
+          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-mod-desc">Data modyfikacji: najnowsza</li>
+          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-mod-desc">Data modyfikacji: najstarsza</li>
         </ul>
         </div>
         <div class="ho_view js-ho_view icon-view_module"></div>

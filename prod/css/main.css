@@ -862,6 +862,53 @@ p
     background-color: #333;
 }
 
+.ho_sort
+{
+    position: relative;
+}
+
+.ho_sort_options
+{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    display: block;
+    overflow: hidden;
+
+    padding: 5px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffb3;
+}
+
+.ho_sort_options-hide
+{
+    display: none;
+}
+
+.ho_sort_options_item
+{
+    display: block;
+
+    padding: 5px;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    border-radius: 5px;
+}
+
+.ho_sort_options_item:hover
+{
+    color: #ffffb3;
+    background-color: #333;
+}
+
 .form
 {
     font-family: 'Arial', 'Verdana', 'Tahoma';
