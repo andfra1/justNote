@@ -1145,6 +1145,9 @@ p
 {
     position: relative;
 
+    display: flex;
+    flex-direction: column;
+
     list-style: none;
 }
 
@@ -1153,19 +1156,9 @@ p
     margin: 10px 0;
 }
 
-.notes li:first-child
-{
-    margin-top: 0;
-}
-
-.notes li:last-child
-{
-    margin-bottom: 0;
-}
-
 .notes-grid
 {
-    display: flex;
+    flex-direction: row;
 
     flex-wrap: wrap;
     align-items: flex-start;
@@ -1214,6 +1207,7 @@ p
     padding: 0 10px;
 
     border-radius: 5px;
+    box-shadow: 0 0 3px 1px #ababab;
 }
 
 .note_color-red
@@ -1339,6 +1333,8 @@ p
     width: 100%;
     height: 200px;
     padding: 10px;
+
+    resize: none;
 }
 
 .note_content.nc .nc_date

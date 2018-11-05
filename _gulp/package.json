@@ -12,20 +12,21 @@
     "version": "echo $npm_package_version"
   },
   "devDependencies": {
-    "gulp": "*",
-    "browser-sync": "*",
     "autoprefixer": "*",
+    "browser-sync": "*",
+    "eslint": "^5.8.0",
+    "gulp": "*",
     "gulp-concat": "*",
     "gulp-csscomb": "*",
     "gulp-merge-media-queries": "*",
+    "gulp-minify-css": "*",
     "gulp-notify": "*",
     "gulp-plumber": "*",
+    "gulp-postcss": "*",
     "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-uglify": "*",
     "gulp-uncss": "*",
-    "gulp-minify-css": "*",
-    "gulp-wait": "*",
-    "gulp-postcss": "*"
+    "gulp-wait": "*"
   }
 }

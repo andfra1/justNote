@@ -6,10 +6,10 @@
   </div>
   <div class="nc_date">
     <div class="nc_date_added">
-      Added: <span>2018.10.11</span>
+      Added: <span><?= $f['dateadd'][$c]; ?></span>
     </div>
     <div class="nc_date_updated">
-      Updated: <span>2018.10.22</span>
+      Updated: <span><?= $f['dateup'][$c]; ?></span>
     </div>
   </div>
 </div>

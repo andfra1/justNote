@@ -1,19 +1,21 @@
 .notes {
   position: relative;
   list-style: none;
+  display: flex;
+  flex-direction: column;
   li {
     margin: 10px 0;
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
+    // &:first-child {
+    //   margin-top: 0;
+    // }
+    // &:last-child {
+    //   margin-bottom: 0;
+    // }
   }
   &-grid {
-    display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    flex-direction: row;
     li {
       margin: 10px;
       width: calc(50% - 20px);
