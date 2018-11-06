@@ -26,6 +26,7 @@
      <?php
       include_once('./inc/header_html.php');
       include_once('./includes/notes.php');
+      include_once('./includes/notes-menu.php');
       ?>
     <?php
       endif;

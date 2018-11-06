@@ -40,33 +40,42 @@ $menu = ['notes' => [
 <header class="header">
   <div class="container">
     <div class="wrapper">
-      <button class="burger" id="js-burger" value="off">
-        <span class="burger_stripe"></span>
-      </button>
-      <div>
-        Logged as
-        <?= $_SESSION['signinname'];?>
-      </div>
-      <ul class="header_menu header_menu-hidden" id="js-header_menu">
-        <?php foreach($menu as $key => $val) : ?>
-        <li><a href=<?= $val['link']; ?>>
-            <span class="<?= $val['icon']; ?>"></span>
-            <?= $key; ?>
-          </a></li>
-        <?php endforeach; ?>
-      </ul>
-      <div class="header_options ho">
-        <div class="ho_sort js-ho_sort icon-sort-alpha-asc">
-        <ul class="ho_sort_options ho_sort_options-hide">
-          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="alph-asc">A - Z</li>
-          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="alph-desc">Z - A</li>
-          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-added-asc">Data dodania: najnowsza</li>
-          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-added-desc">Data dodania: najstarsza</li>
-          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-mod-asc">Data modyfikacji: najnowsza</li>
-          <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-mod-desc">Data modyfikacji: najstarsza</li>
-        </ul>
+      <div class="header_top">
+        <button class="burger" id="js-burger" value="off">
+          <span class="burger_stripe"></span>
+        </button>
+        <div>
+          Logged as
+          <?= $_SESSION['signinname'];?>
         </div>
-        <div class="ho_view js-ho_view icon-view_module"></div>
+        <ul class="header_menu header_menu-hidden" id="js-header_menu">
+          <?php foreach($menu as $key => $val) : ?>
+          <li><a href=<?=$val['link']; ?>>
+              <span class="<?= $val['icon']; ?>"></span>
+              <?= $key; ?>
+            </a></li>
+          <?php endforeach; ?>
+        </ul>
+        <div class="header_options ho">
+          <div class="ho_sort js-ho_sort icon-sort-alpha-asc">
+            <ul class="ho_sort_options ho_sort_options-hide">
+              <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="alph-asc">A - Z</li>
+              <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="alph-desc">Z - A</li>
+              <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-added-asc">Data dodania:
+                najnowsza</li>
+              <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-added-desc">Data dodania:
+                najstarsza</li>
+              <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-mod-asc">Data modyfikacji:
+                najnowsza</li>
+              <li class="ho_sort_options_item js-ho_sort_options_item" data-note-sort="date-mod-desc">Data modyfikacji:
+                najstarsza</li>
+            </ul>
+          </div>
+          <div class="ho_view js-ho_view icon-view_module"></div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <?php include_once './includes/notes-menu.php'; ?>
       </div>
     </div>
   </div>

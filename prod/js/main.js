@@ -158,6 +158,13 @@ $(document).ready(() => {
     }
   });
 });
+if ($('.js-nh_mo')) {
+  $('.js-nh_mo').on('click', nh_mo_toggle);
+}
+
+function nh_mo_toggle() {
+  $('.nh_mo').toggleClass('nh_mo-hide');
+}
 if($('.js-nh_title')) {
   $('.js-nh_title').on('click', ncToggle);
 }

@@ -2,9 +2,11 @@
   z-index: 2;
   .wrapper {
     position: relative;
+    padding: 20px 0;
+  }
+  &_top, &_bottom {
     display: flex;
     align-items: center;
-    padding: 20px 0;
   }
   &_options {
     display: flex;

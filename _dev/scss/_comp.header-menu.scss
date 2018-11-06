@@ -10,7 +10,7 @@
   box-shadow: 0 0 10px 0 #ccc;
   opacity: 1;
   visibility: visible;
-  transition: left 0.3s, opacity 0.2s 0.1s;
+  transition: left 0.3s, opacity 0.2s 0.1s, visibility 0s .3s;
   &-hidden {
     left: -30%;
     opacity: 0;
