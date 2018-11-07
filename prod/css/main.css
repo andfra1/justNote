@@ -1259,6 +1259,11 @@ p
     height: 100px;
 }
 
+.notes-grid li .note_content .nc_box_text
+{
+    height: 100px;
+}
+
 .notes-grid li .note_content-hide
 {
     height: auto !important;
@@ -1516,8 +1521,15 @@ p
 .note_content.nc .nc_box_textarea,
 .note_content.nc .nc_box_text
 {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+
+    overflow-y: auto;
+
     width: 100%;
     height: 200px;
+    margin: 0;
     padding: 10px;
 
     resize: none;
