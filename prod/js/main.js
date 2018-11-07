@@ -158,12 +158,63 @@ $(document).ready(() => {
     }
   });
 });
-if ($('.js-nh_mo')) {
-  $('.js-nh_mo').on('click', nh_mo_toggle);
+if ($('.nh_checkbox')) {
+  $('.nh_checkbox').on('click', nmo_toggle);
 }
 
-function nh_mo_toggle() {
-  $('.nh_mo').toggleClass('nh_mo-hide');
+function nmo_toggle() {
+  if ($('.nh_checkbox').is(':checked')) {
+    $('.header_bottom').removeClass('header_bottom-hide');
+    $('.nmo').removeClass('nmo-hide');
+  } else {
+    $('.header_bottom').addClass('header_bottom-hide');
+    $('.nmo').addClass('nmo-hide');
+  }
+}
+if ($('.nh_edit')) {
+  $('.nh_edit').on('click', note_edit);
+}
+
+function note_edit(){
+  $(this).removeClass('icon-pencil')
+  .addClass('icon-check1')
+  .parent()
+  .parent()
+  .find('.js-note_content')
+  .removeClass('note_content-hide');
+
+  $(this)
+  .parent()
+  .parent()
+  .find('.nc_box_text')
+  .addClass('nc_box_text-hide');
+
+  $(this)
+  .parent()
+  .parent()
+  .find('.js-nh_title').off();
+
+  
+  $(this).parent()
+  .children()
+  .children('.nh_title_text')
+  .addClass('nh_title_text-hide');
+  
+  var spaceRemove = /^\ +|\ +$/gm;
+  var fromHeaderText = $(this).parent().children().children('.nh_title_text')[0].innerText.replace(spaceRemove,"");
+  var fromBoxText = $(this).parent().parent().children().children().children('.nc_box_text')[0].innerText.replace(spaceRemove,"");
+  console.log(fromBoxText);
+
+  $(this).parent()
+  .children()
+  .children('.nh_title_text-input')
+  .removeClass('nh_title_text-input-hide')
+  .val(fromHeaderText);
+
+  $(this).parent().parent().children().children()
+  .children('.nc_box_textarea')
+  .removeClass('nc_box_textarea-hide')
+  .text(fromBoxText);
 }
 if($('.js-nh_title')) {
   $('.js-nh_title').on('click', ncToggle);

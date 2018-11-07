@@ -10,12 +10,12 @@
   box-shadow: 0 0 10px 0 #ccc;
   opacity: 1;
   visibility: visible;
-  transition: left 0.3s, opacity 0.2s 0.1s, visibility 0s .3s;
+  transition: left 0.3s, opacity 0.2s 0.1s, visibility 0s 0s;
   &-hidden {
     left: -30%;
     opacity: 0;
     visibility: hidden;
-    transition: left 0.3s, opacity 0.2s 0s;
+    transition: left 0.3s, opacity 0.3s 0s, visibility 0s .3s;
   }
   li {
     border-radius: 5px;

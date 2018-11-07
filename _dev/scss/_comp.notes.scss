@@ -19,6 +19,9 @@
     li {
       margin: 10px;
       width: calc(50% - 20px);
+      @include mq(570) {
+        width: 100%;
+      }
       &:first-child {
         margin: 10px;
       }

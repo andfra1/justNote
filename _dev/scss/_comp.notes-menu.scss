@@ -1,17 +1,27 @@
 $nmo_padd: 5px;
 
+.nmo {
+  margin: 10px auto 0;
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.3s, opacity 0.2s 0.2s, visibility 0.4s;
+  &-hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0s 0.4s, opacity 0.2s 0s, visibility 0.4s;
+  }
+}
 .nmo,
-.nmo ul {
+.nmo_submenu {
   display: flex;
   background-color: #607d8b;
   border-radius: 5px;
-  //overflow: hidden;
   border: 1px solid #ccc;
   padding: 0;
   font-family: $ff-basic;
   font-size: 14px;
-
-  &-hide {
+  .nmo_submenu-hide {
     display: none;
   }
 
@@ -28,7 +38,6 @@ $nmo_padd: 5px;
     color: $c-white;
 
     &>span {
-      //margin-right: 3px;
       border-radius: 5px;
       padding: 5px;
       width: 24px;
@@ -47,9 +56,6 @@ $nmo_padd: 5px;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      // &>li {
-      //   flex-direction: row;
-      // }
     }
 
     &:hover>ul {

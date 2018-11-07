@@ -1,9 +1,13 @@
 <?php
 $menuNote = [
-  'edit' => [
-    'icon' => 'icon-pencil',
-    'options' => []
-  ], 
+  // 'edit' => [
+  //   'icon' => 'icon-pencil',
+  //   'options' => []
+  // ], 
+  'important' => [
+    'icon' => 'icon-star-full',
+    'options' => ['icon-check1', 'icon-close']
+  ],
   'move to archives' => [
     'icon' => 'icon-books',
     'options' => ['icon-check1', 'icon-close']
@@ -14,11 +18,7 @@ $menuNote = [
   ], 
   'reminder' => [
     'icon' => 'icon-alarm',
-    'options' => ['morre stuff here']
-  ],
-  'important' => [
-    'icon' => 'icon-star-full',
-    'options' => ['icon-check1', 'icon-close']
+    'options' => []
   ],
   'categories' => [
     'icon' => 'icon-hashtag',
@@ -30,12 +30,11 @@ $menuNote = [
   ]
   ]
 ?>
-<ul class="notes_menu_options nmo js-nmo">
+<ul class="notes_menu_options nmo nmo-hide js-nmo">
   <?php foreach($menuNote as $key => $val) : ?>
   <li class="nmo_item">
     <span class="<?= $val['icon']?>"></span>
-    <?//= $key; ?>
-    <ul>
+    <ul class="nmo_submenu">
     <?php foreach($val['options'] as $k => $v) : 
       if (($v) !== '') :?>
       <li>

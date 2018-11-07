@@ -5,12 +5,12 @@ body {
 
 body {
   background-color: $c-light-gray;
-  font-family: "Arial", "Verdana", "Tahoma";
+  font-family: "Helvetica", "Arial", "Verdana", "Tahoma";
 }
 
 ::selection {
-  color: $c-dark;
-  background: $c-light-gray;
+  color: $c-white;
+  background: $c-dark;
 }
 
 h1,
@@ -18,7 +18,7 @@ h2,
 h3,
   {
   color: inherit;
-  font-family: $ff-basic;
+  // font-family: $ff-basic;
   font-weight: $fw-basic;
 }
 
@@ -64,7 +64,7 @@ p {
   max-width: $container-width;
   padding: $container-padding;
   margin: $container-margin;
-  font-family: $ff-basic;
+  // font-family: $ff-basic;
   font-weight: $fw-basic;
   font-size: $fs-basic;
   color: $fc-basic;

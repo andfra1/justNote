@@ -2,11 +2,20 @@
   z-index: 2;
   .wrapper {
     position: relative;
-    padding: 20px 0;
+    padding: 10px 0;
   }
   &_top, &_bottom {
     display: flex;
     align-items: center;
+  }
+  &_bottom {
+    height: 56px;
+    overflow: visible;
+    transition: height 0.4s;
+    &-hide {
+      height: 0;
+      overflow: hidden;
+    }
   }
   &_options {
     display: flex;

@@ -2,33 +2,8 @@
   border-radius: 5px;
   padding: 0 10px;
   overflow: hidden;
-  box-shadow: 0 0 3px 1px #ababab;
-  &_color {
-    &-red {
-      background-color: $c-red;
-    }
-
-    &-yellow {
-      background-color: $c-basic;
-    }
-
-    &-blue {
-      background-color: $c-blue;
-    }
-
-    &-magenta {
-      background-color: $c-magenta;
-    }
-
-    &-cyan {
-      background-color: $c-cyan;
-    }
-
-    &-green {
-      background-color: $c-green;
-    }
-  }
-
+  box-shadow: 0 0 3px 1px $c-light-gray3;
+  min-width: 240px;
   &_header.nh {
     display: flex;
     align-items: center;
@@ -37,6 +12,12 @@
     &>* {
       position: relative;
       padding: 10px;
+      &:nth-child(2) {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     .nh {
@@ -59,21 +40,37 @@
       }
 
       &_title {
-        flex: 1 0 auto;
+        //flex: 1 0 auto;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
         cursor: pointer;
-        &_text {}
+        &_text {
+          display: block;
+          &-hide {
+            display: none;
+          }
+          &-input {
+          display: block;
+          width: 100%;
+          height: 100%;
+          &-hide {
+            display: none;
+          }}
+        }
       }
 
       &_date {
         font-size: 11px;
-
-        &_added {}
       }
 
       &_label {
         &:before {
           font-size: 16px;
         }
+      }
+      &_edit {
+        cursor: pointer;
       }
 
       &_menu {
@@ -89,9 +86,9 @@
     }
   }
 
-  .nh_checkbox:checked+*+.nh_title>.nh_title_text {
-    text-decoration: line-through;
-  }
+  // .nh_checkbox:checked+*+.nh_title>.nh_title_text {
+  //   text-decoration: line-through;
+  // }
   &_content.nc {
     height: 250px;
     transition: height 0.3s;
@@ -101,12 +98,18 @@
     .nc {
       &_box {
         border-top: 1px solid $c-dark;
-        background-color: rgba(255,255,255,0.5);
-        &_textarea {
+        background-color: rgba($c-white,0.5);
+        &_textarea, &_text {
           width: 100%;
           height: 200px;
           padding: 10px;
           resize: none;
+          &-hide {
+            display: none;
+          }
+        }
+        &_text-hide {
+          display: none;
         }
       }
       &_date {
