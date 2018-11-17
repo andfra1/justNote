@@ -2,44 +2,120 @@ if ($('.nh_edit')) {
   $('.nh_edit').on('click', note_edit);
 }
 
-function note_edit(){
-  $(this).removeClass('icon-pencil')
-  .addClass('icon-check1')
-  .parent()
-  .parent()
-  .find('.js-note_content')
-  .removeClass('note_content-hide');
+var d = new Date;
+var year = d.getFullYear();
+var day = d.getDate() < 10 ? '0' + d.getDate() : d.getDate();
+var month = d.getMonth()+1 < 10 ? '0' + d.getMonth()+1 : d.getMonth()+1;
 
-  $(this)
-  .parent()
-  .parent()
-  .find('.nc_box_text')
-  .addClass('nc_box_text-hide');
+var spaceRemove = /^\ +|\ +$/gm;
 
-  $(this)
-  .parent()
-  .parent()
-  .find('.js-nh_title').off();
+function note_edit() {
 
-  
-  $(this).parent()
+  var fromDivToInputText = $(this)
+  .parent()
   .children()
-  .children('.nh_title_text')
-  .addClass('nh_title_text-hide');
+  .children('.nh_title_text')[0]
+  .innerText
+  .replace(spaceRemove, "");
   
-  var spaceRemove = /^\ +|\ +$/gm;
-  var fromHeaderText = $(this).parent().children().children('.nh_title_text')[0].innerText.replace(spaceRemove,"");
-  var fromBoxText = $(this).parent().parent().children().children().children('.nc_box_text')[0].innerText.replace(spaceRemove,"");
-  console.log(fromBoxText);
-
-  $(this).parent()
+  var fromInputToDivText = $(this)
+  .parent()
   .children()
   .children('.nh_title_text-input')
-  .removeClass('nh_title_text-input-hide')
-  .val(fromHeaderText);
+  .val();
+  
+var fromBoxToTxtareaText = $(this)
+  .parent()
+  .parent()
+  .children()
+  .children()
+  .children('.nc_box_text')[0]
+  .innerText
+  .replace(spaceRemove, "");
 
-  $(this).parent().parent().children().children()
+  var fromTxtareaToBoxText = $(this)
+  .parent()
+  .parent()
+  .children()
+  .children()
   .children('.nc_box_textarea')
-  .removeClass('nc_box_textarea-hide')
-  .text(fromBoxText);
+  .val();
+
+  if ($(this).data('edit-status') === "off") {
+    
+    $(this).siblings('.js-nh_title').off('click', ncToggle);
+
+    $(this).data('edit-status', 'on')
+      .removeClass('icon-pencil')
+      .addClass('icon-check1')
+      .parent()
+      .parent()
+      .find('.js-note_content')
+      .removeClass('note_content-hide');
+
+    $(this)
+      .parent()
+      .parent()
+      .find('.nc_box_text')
+      .addClass('nc_box_text-hide');
+
+    $(this).parent()
+      .children()
+      .children('.nh_title_text')
+      .addClass('nh_title_text-hide');
+
+    $(this).parent()
+      .children()
+      .children('.nh_title_text-input')
+      .removeClass('nh_title_text-input-hide')
+      .val(fromDivToInputText);
+
+    $(this).parent().parent().children().children()
+      .children('.nc_box_textarea')
+      .removeClass('nc_box_textarea-hide')
+      .text(fromBoxToTxtareaText);
+
+  }
+  else if ($(this).data('edit-status') === "on") {
+    
+    $(this).siblings('.js-nh_title').on('click', ncToggle);
+
+    $(this).data('edit-status', 'off')
+      .removeClass('icon-check1')
+      .addClass('icon-pencil')
+      .parent()
+      .parent()
+      .find('.js-note_content')
+      .addClass('note_content-hide');
+
+    $(this)
+      .parent()
+      .parent()
+      .find('.nc_box_text')
+      .removeClass('nc_box_text-hide')
+      .text(fromTxtareaToBoxText);
+
+    $(this).parent()
+      .children()
+      .children('.nh_title_text')
+      .removeClass('nh_title_text-hide')
+      .text(fromInputToDivText);
+
+    $(this).parent()
+      .children()
+      .children('.nh_title_text-input')
+      .addClass('nh_title_text-input-hide');
+
+    $(this).parent().parent().children().children()
+      .children('.nc_box_textarea')
+      .addClass('nc_box_textarea-hide');
+
+    $(this).parent()
+    .parent()
+    .children()
+    .children()
+    .children('.nc_date_updated')
+    .children('span')
+    .text(year + '.' + month + '.' + day);
+  }
 }

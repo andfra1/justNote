@@ -3,15 +3,6 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  li {
-    margin: 10px 0;
-    // &:first-child {
-    //   margin-top: 0;
-    // }
-    // &:last-child {
-    //   margin-bottom: 0;
-    // }
-  }
   &-grid {
     flex-wrap: wrap;
     align-items: flex-start;
@@ -32,7 +23,7 @@
         display: none;
       }
       & .note_content {
-        height: 145px;
+        height: 143px;
         & .nc_box_textarea {
           height: 100px;
         }

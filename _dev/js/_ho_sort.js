@@ -60,7 +60,6 @@ function ho_soi_data(){
     $('.note').find('.nc_date_updated > span').each((i, val) => {
       tempArr.push([val.innerText,i]);
     });
-    console.log(tempArr);
     tempArr.sort().reverse();
     $('.note').each(i => {
       $('.note').eq(tempArr[i][1]).attr('style','order:' + i);

@@ -7,9 +7,9 @@ $f = [
 'dateup' => ['2018.09.11', '2018.08.12','2018.11.25','2018.12.11', '2019.01.24','2018.09.13']
 ];
 $c=0;
-foreach ($f as $key => $val) :
+for($i=0; $i<6; $i++) :
 ?>
-<li class="note note_color-<?= $f['col'][$c]; ?>">
+<li class="note note_color-<?= $f['col'][$c]; ?>" data-archives="<?= $i%2===0?'true':'false'; ?>" data-reminders="<?= $i%3===0?'true':'false'; ?>" data-importants="<?= $i%4===0?'true':'false'; ?>" data-notetype="<?= $i%2===0?'note':'checklist'; ?>">
 <?php
 $text = true;
 
@@ -25,5 +25,5 @@ include 'note-header.php';
 </li>
 <?php
 $c++;
-endforeach;
+endfor;
 ?>

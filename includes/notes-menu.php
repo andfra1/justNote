@@ -20,10 +20,10 @@ $menuNote = [
     'icon' => 'icon-alarm',
     'options' => []
   ],
-  'categories' => [
-    'icon' => 'icon-hashtag',
-    'options' => []
-  ],
+  // 'categories' => [
+  //   'icon' => 'icon-hashtag',
+  //   'options' => []
+  // ],
   'delete' => [
     'icon' => 'icon-bin',
     'options' => ['icon-check1', 'icon-close']
